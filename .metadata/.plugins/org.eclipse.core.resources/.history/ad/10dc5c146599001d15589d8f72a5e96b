@@ -1,0 +1,45 @@
+package game;
+
+import java.util.Random;
+
+
+public class Dice {
+	private int[] facesValues = {1,2,3,4};
+	private double[] facesProbabilities;
+	
+	public Dice(double[] facesProbabilities) {
+		super();
+		this.facesProbabilities = facesProbabilities;
+	}
+
+	public double[] getFacesProbabilities() {
+		return facesProbabilities;
+	}
+
+	public void setFacesProbabilities(double[] facesProbabilities) {
+		this.facesProbabilities = facesProbabilities;
+	}
+
+	public int[] getFacesValues() {
+		return facesValues;
+	}
+
+	public void setFacesValues(int[] facesValues) {
+		this.facesValues = facesValues;
+	}
+	
+	public double sumOfProbabilities() {
+		double sum = 0;
+		for(int i = 0; i<4;i++) {
+			sum += this.facesProbabilities[i];
+		}
+		return sum
+	}
+	
+	public int getRandomFace() {
+		Random rand = new Random();
+		return ;
+	}
+	
+	
+}

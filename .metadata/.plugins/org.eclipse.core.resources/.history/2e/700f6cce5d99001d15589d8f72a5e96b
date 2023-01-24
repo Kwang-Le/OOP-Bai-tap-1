@@ -1,0 +1,16 @@
+package game;
+
+import java.util.ArrayList;
+
+public class Dice {
+	private int[] facesValues = {1,2,3,4};
+	private double[] facesProbabilities;
+	
+	public Dice(ArrayList<Double> facesProbabilities) {
+		super();
+		this.facesValues = {1,2,3,4};
+		this.facesProbabilities = facesProbabilities;
+	}
+	
+	
+}

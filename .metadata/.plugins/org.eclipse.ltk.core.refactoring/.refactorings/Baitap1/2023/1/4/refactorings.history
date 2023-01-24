@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;game.GameMaster.currentPlayer&apos; in &apos;game.GameMaster&apos;&#x0D;&#x0A;- Original project: &apos;Baitap1&apos;&#x0D;&#x0A;- Original element: &apos;game.GameMaster.currentPlayer&apos;&#x0D;&#x0A;- Getter method name: &apos;getCurrentPlayer&apos;&#x0D;&#x0A;- Setter method name: &apos;setCurrentPlayer&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;currentPlayer&apos;" flags="589830" getter="getCurrentPlayer" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;game{GameMaster.java[GameMaster^currentPlayer" insertion="6" setter="setCurrentPlayer" stamp="1674574946393" version="1.0" visibility="1"/>
+</session>

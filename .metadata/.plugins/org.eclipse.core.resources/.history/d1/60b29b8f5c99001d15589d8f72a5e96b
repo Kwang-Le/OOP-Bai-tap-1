@@ -1,0 +1,5 @@
+package game;
+
+public class Dice {
+	private ArrayList<Int> facesValues = new Arraylist<Int>();
+}

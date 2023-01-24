@@ -1,0 +1,62 @@
+package game;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Game {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			double[] diceOneFaces = {20,16,16,16};
+			double[] diceTwoFaces = {16,20,16,16};
+			double[] diceThreeFaces = {16,16,20,16};
+			double[] diceFourFaces = {16,16,16,20};
+			Dice diceOne = new Dice(diceOneFaces);
+			Dice diceTwo = new Dice(diceTwoFaces);
+			Dice diceThree = new Dice(diceThreeFaces);
+			Dice diceFour = new Dice(diceFourFaces);
+			ArrayList<Dice> diceArray = new ArrayList<Dice>();
+			diceArray.add(diceOne);
+			diceArray.add(diceTwo);
+			diceArray.add(diceThree);
+			diceArray.add(diceFour);
+			
+			
+			Player playerOne = new Player("Quang", 0, "huhu I lost", false);
+			Player playerTwo = new Player("My", 0, "huhu I am sida", false);
+			Player playerThree = new Player("Minh", 0, "This can not be happening", true);
+			Player playerFour = new Player("Nam", 0, "whatever, you are just lucky", true);
+			
+			GameMaster game = new GameMaster();
+			game.addPlayer(playerOne);
+			game.addPlayer(playerTwo);
+			game.addPlayer(playerThree);
+			game.addPlayer(playerFour);
+			game.setCurrentPlayer(playerOne);
+			
+			while(game.checkIfWinner() == false) {
+				//generate random dice
+				Random rand = new Random();
+				int randomDiceIndex = rand.nextInt(3);
+				Dice randomDice = diceArray.get(randomDiceIndex);
+				
+				//get current player
+				Player currentPlayer = game.getCurrentPlayer();
+				//set random dice for player
+				currentPlayer.setCurrentDice(randomDice);
+				
+				//Roll the dice
+				int scoreRolled = currentPlayer.rollDice();
+				System.out.println("It is " + currentPlayer.getName() + "'s turn, they rolled: " + scoreRolled);
+				//add score to player
+				currentPlayer.setScore(currentPlayer.getScore() + scoreRolled);
+				System.out.println(currentPlayer.getName() + "'s score is " + currentPlayer.getScore());
+				//check if there is a winner
+				game.checkScoreEveryPlayerEachTurn();
+				game.nextPlayer();
+				
+				
+			}
+			game.declareWinner();
+		}
+}

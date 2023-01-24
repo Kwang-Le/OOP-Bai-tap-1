@@ -1,0 +1,71 @@
+package game;
+
+public class Player {
+	private String name;
+	private double score;
+	private String failChant;
+	private boolean AIstatus;
+	private Dice currentDice;
+	
+	public Player(String name, double score, String failChant, boolean aIstatus) {
+		super();
+		this.name = name;
+		this.score = score;
+		this.failChant = failChant;
+		AIstatus = aIstatus;
+	}
+	
+	
+	public Player(String name, double score, String failChant) {
+		super();
+		this.name = name;
+		this.score = score;
+		this.failChant = failChant;
+	}
+
+
+	public Player(String name, double score) {
+		super();
+		this.name = name;
+		this.score = score;
+	}
+
+	
+
+	public Player(String name) {
+		super();
+		this.name = name;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getScore() {
+		return score;
+	}
+	public void setScore(double score) {
+		this.score = score;
+	}
+	public String getFailChant() {
+		return failChant;
+	}
+	public void setFailChant(String failChant) {
+		this.failChant = failChant;
+	}
+	public boolean isAIstatus() {
+		return AIstatus;
+	}
+	public void setAIstatus(boolean aIstatus) {
+		AIstatus = aIstatus;
+	}
+	
+	public void increaseScore(double score) {
+		this.score += score; 
+	}
+	
+	
+}

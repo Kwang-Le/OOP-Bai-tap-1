@@ -1,0 +1,39 @@
+package game;
+
+import java.util.ArrayList;
+
+public class Game {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			double[] diceOneFaces = {20,16,16,16};
+			double[] diceTwoFaces = {16,20,16,16};
+			double[] diceThreeFaces = {16,16,20,16};
+			double[] diceFourFaces = {16,16,16,20};
+			Dice diceOne = new Dice(diceOneFaces);
+			Dice diceTwo = new Dice(diceTwoFaces);
+			Dice diceThree = new Dice(diceThreeFaces);
+			Dice diceFour = new Dice(diceFourFaces);
+			ArrayList<Dice> diceArray = new ArrayList<Dice>();
+			diceArray.add(diceOne);
+			diceArray.add(diceTwo);
+			diceArray.add(diceThree);
+			diceArray.add(diceFour);
+			
+			
+			Player playerOne = new Player("Quang", 0, "huhu I loss", false);
+			Player playerTwo = new Player("My", 0, "huhu I am sida", false);
+			
+			GameMaster game = new GameMaster();
+			game.addPlayer(playerOne);
+			game.addPlayer(playerTwo);
+			game.setCurrentPlayer(playerOne);
+			
+			while(game.checkIfWinner() == false) {
+				int currentPlayerScore = game.getCurrentPlayer().rollDice();
+				
+			}
+			int output = diceOne.getRandomFace();
+			System.out.println(output);
+		}
+}

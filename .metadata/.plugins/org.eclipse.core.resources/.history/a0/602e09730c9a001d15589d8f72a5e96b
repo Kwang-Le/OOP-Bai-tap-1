@@ -1,0 +1,23 @@
+package game;
+
+import java.util.ArrayList;
+
+public class GameMaster {
+	private ArrayList<Player> players = new ArrayList<Player>();
+	
+	public void addPlayer(Player player) {
+		players.add(player);
+	}
+
+	public void nextPlayer() {
+		
+	}
+	
+	public int calculateScore(Player player) {
+		return 1;
+	}
+	
+	public void declareWinner() {
+		
+	}
+}

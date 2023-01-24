@@ -1,0 +1,12 @@
+package game;
+
+public class GameMaster {
+
+	public void nextPlayer() {
+		
+	}
+	
+	public int calculateScore(Player player) {
+		return 1;
+	}
+}

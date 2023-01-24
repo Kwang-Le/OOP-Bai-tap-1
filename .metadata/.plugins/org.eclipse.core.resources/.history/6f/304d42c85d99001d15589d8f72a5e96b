@@ -1,0 +1,8 @@
+package game;
+
+import java.util.ArrayList;
+
+public class Dice {
+	private ArrayList<Integer> facesValues = new ArrayList<Integer>();
+	private ArrayList<Double> facesProbabilities = new ArrayList<Double>();
+}

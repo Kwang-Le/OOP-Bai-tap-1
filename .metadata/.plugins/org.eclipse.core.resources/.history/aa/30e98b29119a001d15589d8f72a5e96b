@@ -1,0 +1,40 @@
+package game;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class GameMaster {
+	private ArrayList<Player> players = new ArrayList<Player>();
+	private Player currentPlayer;
+	
+	public void setCurrentPlayer(Player player) {
+		this.currentPlayer = player;
+	}
+	
+	public void addPlayer(Player player) {
+		players.add(player);
+	}
+
+	public void nextPlayer() {
+		int currentPlayerIndex = players.indexOf(currentPlayer);
+		if(currentPlayerIndex + 1 <=3) {
+			this.currentPlayer = players.get(currentPlayerIndex + 1);			
+		}else {
+			this.currentPlayer = players.get(0);
+		}
+	}
+	
+	public int calculateScore(Player player) {
+		return 1;
+	}
+	
+	public void checkScore() {
+		for(Iterator<Player> i = this.players.iterator(); i.hasNext();) {
+			
+		}
+	}
+	
+	public void declareWinner() {
+		
+	}
+}

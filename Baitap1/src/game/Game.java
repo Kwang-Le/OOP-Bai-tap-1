@@ -1,0 +1,92 @@
+package game;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Game {
+	
+	public static Player getHumanPlayer() {
+		 	Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+		    System.out.println("Enter player's name:");
+
+		    String playerName = scanner.nextLine();  // Read user input
+		    System.out.println("Enter player's chant:");
+		    String playerChant = scanner.nextLine();
+		    
+		    Player player = new Player(playerName, 0, playerChant, false);
+		    return player;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			double[] diceOneFaces = {20,16,16,16};
+			double[] diceTwoFaces = {16,20,16,16};
+			double[] diceThreeFaces = {16,16,20,16};
+			double[] diceFourFaces = {16,16,16,20};
+			String[] namesForComputerPlayers = {"Minh", "Nam", "Tu", "Trang"};
+			String[] chantsForComputerPlayers = {"This can not be happening", "whatever, you are just lucky", "I will have my revenge", "how dare you"};
+			Dice diceOne = new Dice(diceOneFaces);
+			Dice diceTwo = new Dice(diceTwoFaces);
+			Dice diceThree = new Dice(diceThreeFaces);
+			Dice diceFour = new Dice(diceFourFaces);
+			ArrayList<Dice> diceArray = new ArrayList<Dice>();
+			diceArray.add(diceOne);
+			diceArray.add(diceTwo);
+			diceArray.add(diceThree);
+			diceArray.add(diceFour);
+			Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+		    System.out.println("Enter number of human players:");
+		    int numOfPlayers = scanner.nextInt();
+		    
+		    GameMaster game = new GameMaster();
+		    
+		    //add human players
+		    for(int i = 0;i<numOfPlayers;i++) {
+		    	game.addPlayer(getHumanPlayer());
+		    }
+		    
+		  //add computer players
+		    for(int i = 0;i<4 - numOfPlayers;i++) {
+		    	game.addPlayer(new Player(namesForComputerPlayers[i], 0, chantsForComputerPlayers[i], true));
+		    }
+			
+//			Player playerOne = new Player("Quang", 0, "huhu I have lost", false);
+//			Player playerTwo = new Player("My", 0, "huhu I am sida", false);
+//			Player playerThree = new Player("Minh", 0, "This can not be happening", true);
+//			Player playerFour = new Player("Nam", 0, "whatever, you are just lucky", true);
+//			
+//			
+//			game.addPlayer(playerOne);
+//			game.addPlayer(playerTwo);
+//			game.addPlayer(playerThree);
+//			game.addPlayer(playerFour);
+			
+			game.setFirstPlayer();;
+			
+			while(game.checkIfWinner() == false) {
+				//generate random dice
+				Random rand = new Random();
+				int randomDiceIndex = rand.nextInt(3);
+				Dice randomDice = diceArray.get(randomDiceIndex);
+				
+				//get current player
+				Player currentPlayer = game.getCurrentPlayer();
+				//set random dice for player
+				currentPlayer.setCurrentDice(randomDice);
+				
+				//Roll the dice
+				int scoreRolled = currentPlayer.rollDice();
+				System.out.println("It is " + currentPlayer.getName() + "'s turn, they rolled: " + scoreRolled);
+				//add score to player
+				currentPlayer.setScore(currentPlayer.getScore() + scoreRolled);
+				System.out.println(currentPlayer.getName() + "'s score is " + currentPlayer.getScore());
+				//check if there is a winner
+				game.checkScoreEveryPlayerEachTurn();
+				game.nextPlayer();
+				
+				
+			}
+			game.declareWinner();
+		}
+}
